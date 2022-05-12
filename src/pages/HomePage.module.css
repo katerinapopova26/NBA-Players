@@ -1,0 +1,15 @@
+body,
+html {
+  height: 100%;
+}
+
+.scene_home {
+  background-image: url("../assets/NbaBackground.jpg");
+  background-color: #cccccc;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}

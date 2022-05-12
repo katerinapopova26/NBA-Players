@@ -2,54 +2,64 @@ import React, { useState, Fragment } from "react";
 
 import Card from "../UI/Card";
 import Button from "../UI/Button";
-import ErrorModal from "../UI/ErrorModal";
 import classes from "./AddUser.module.css";
 
 const AddUser = (props) => {
-  const [enteredUsername, setEnteredUsername] = useState("");
-  const [error, setError] = useState();
+  const [enteredName, setEnteredName] = useState("");
+  const [enteredNameTouched, setEnteredNameTouched] = useState(false);
+
+  const enteredNameIsValid = enteredName.trim().length > 2;
+  const nameInputIsInvalid = !enteredNameIsValid && enteredNameTouched;
+
+  const usernameChangeHandler = (event) => {
+    setEnteredName(event.target.value);
+  };
+
+  const nameInputBlurHandler = (event) => {
+    setEnteredNameTouched(true);
+
+    if (!enteredNameIsValid) {
+      return;
+    }
+  };
 
   const addUserHandler = (event) => {
     event.preventDefault();
-    if (enteredUsername.trim().length < 3) {
-      setError({
-        title: "Invalid input",
-        message: "Please enter a username that is at least 3 characters long.",
-      });
+
+    if (!enteredNameIsValid) {
       return;
     }
 
-    props.onAddUser(enteredUsername);
-    setEnteredUsername("");
+    console.log(enteredName);
+
+    setEnteredName("");
+    setEnteredNameTouched(false);
   };
 
-  const usernameChangeHandler = (event) => {
-    setEnteredUsername(event.target.value);
-  };
-
-  const errorHandler = () => {
-    setError(null);
-  };
+  const nameInputClasses = nameInputIsInvalid
+    ? [classes.form_control, classes.invalid].join(" ")
+    : classes.form_control;
 
   return (
     <Fragment>
-      {error && (
-        <ErrorModal
-          title={error.title}
-          message={error.message}
-          onConfirm={errorHandler}
-        />
-      )}
-      <Card className={classes.input}>
+      <Card className={nameInputClasses}>
         <form onSubmit={addUserHandler}>
           <label htmlFor="username">Username</label>
           <input
             id="username"
             type="text"
-            value={enteredUsername}
+            value={enteredName}
             onChange={usernameChangeHandler}
+            onBlur={nameInputBlurHandler}
           />
-          <Button type="submit">Add User</Button>
+          {nameInputIsInvalid && (
+            <p className={classes.text_error}>
+              Please enter at least 3 characters.
+            </p>
+          )}
+          <div className={classes.actions}>
+            <Button type="submit">Add User</Button>
+          </div>
         </form>
       </Card>
     </Fragment>
