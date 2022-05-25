@@ -1,4 +1,5 @@
 import { Fragment } from "react";
+import { Link } from "react-router-dom";
 
 import classes from "./MainHeader.module.css";
 import Button from "../UI/Button";
@@ -12,7 +13,14 @@ const MainHeader = (props) => {
           alt="nba logo"
           className={classes.logo}
         />
-        <Button className={classes.button}>My Team</Button>
+        <Link to="/myteam">
+          <Button className={classes.button}>My Team</Button>
+        </Link>
+        {/* <div className={classes.user_output}>
+          {props.userData.map((user) => (
+            <li key={user.id}>{user.name}</li>
+          ))}
+        </div> */}
       </header>
     </Fragment>
   );

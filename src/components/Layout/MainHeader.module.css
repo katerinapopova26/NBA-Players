@@ -24,3 +24,10 @@
   background: rgb(18, 48, 70);
   border-color: rgb(18, 48, 70);
 }
+
+.user_output {
+  display: block;
+  font-size: 1.15rem;
+  font-weight: bold;
+  color: white;
+}

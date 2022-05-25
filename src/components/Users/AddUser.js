@@ -26,11 +26,13 @@ const AddUser = (props) => {
   const addUserHandler = (event) => {
     event.preventDefault();
 
+    const enteredData = { name: enteredName };
+
     if (!enteredNameIsValid) {
       return;
     }
 
-    console.log(enteredName);
+    props.onAddUser(enteredData);
 
     setEnteredName("");
     setEnteredNameTouched(false);

@@ -1,26 +1,25 @@
-import React, { useState } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 
 import AddUser from "../components/Users/AddUser";
-import UserOutput from "../components/Users/UserOutput";
 import classes from "./HomePage.module.css";
 
-const HomePage = () => {
+const HomePage = (props) => {
   const navigate = useNavigate();
-  const [userOutput, setUserOutput] = useState([]);
 
-  const addUserHandler = (userName) => {
-    setUserOutput(() => {
-      return [{ name: userName, id: Math.random().toString() }];
-    });
-
-    navigate("/players", { replace: true });
+  const saveUserHandler = (Uname) => {
+    const enteredData = {
+      ...Uname,
+      id: Math.random().toString(),
+    };
+    props.onAddUser(enteredData);
   };
+
+  navigate("/players", { replace: true });
 
   return (
     <div className={classes.scene_home}>
-      <AddUser onAddUser={addUserHandler} />
-      <UserOutput users={userOutput} />
+      <AddUser onAddUser={saveUserHandler} />
     </div>
   );
 };
