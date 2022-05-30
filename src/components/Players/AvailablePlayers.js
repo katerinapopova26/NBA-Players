@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 
-import PlayersList from "./PlayersList";
+import Players from "./Players";
 import LoadingSpinner from "../UI/LoadingSpinner";
+import classes from "./AvailablePlayers.module.css";
 
 function AvailablePlayers() {
   const [players, setPlayers] = useState([]);
@@ -41,10 +42,14 @@ function AvailablePlayers() {
 
   return (
     <React.Fragment>
-      {!isLoading && players.length > 0 && <PlayersList players={players} />}
+      {!isLoading && players.length > 0 && <Players players={players} />}
       {!isLoading && players.length === 0 && !error && <p>Found no players.</p>}
       {!isLoading && error && <p>{error}</p>}
-      {isLoading && <LoadingSpinner />}
+      {isLoading && (
+        <div className={classes.loading}>
+          <LoadingSpinner />
+        </div>
+      )}
     </React.Fragment>
   );
 }

@@ -1,10 +1,11 @@
 import React from "react";
 
 import Player from "./Player";
+import classes from "./PlayersList.module.css";
 
 const PlayersList = (props) => {
   return (
-    <table>
+    <table className={classes.content_table}>
       <thead>
         <tr>
           <th>Id</th>

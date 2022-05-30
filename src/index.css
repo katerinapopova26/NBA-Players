@@ -2,9 +2,11 @@
 
 html {
   font-family: "Noto Sans", sans-serif;
+  overflow-y: scroll;
 }
 body {
   margin: 0;
+  overflow-y: scroll;
 }
 
 .centered {
@@ -15,4 +17,9 @@ body {
   align-items: center;
   font-size: 5rem;
   font-weight: bold;
+}
+
+.scroll {
+  overflow-y: auto;
+  overflow-x: hidden;
 }

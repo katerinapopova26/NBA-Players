@@ -1,0 +1,17 @@
+.content_table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.content_table thead {
+  background-color: #e5e5e5;
+  color: #343232;
+  text-transform: uppercase;
+  text-align: left;
+  font-weight: 700;
+  font-size: 12px;
+  position: sticky;
+}
+.content_table thead th {
+  padding: 14px 6px;
+}

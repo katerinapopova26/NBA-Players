@@ -1,0 +1,8 @@
+.player_row {
+  display: table-row;
+  height: 2.75rem;
+  font-size: 0.85rem;
+  margin: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #ccc;
+}

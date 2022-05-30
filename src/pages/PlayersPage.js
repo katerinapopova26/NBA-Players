@@ -4,7 +4,7 @@ import Background from "../components/UI/Background";
 
 const PlayersPage = (props) => {
   return (
-    <Background>
+    <Background className={"scroll"}>
       <MainHeader />
       <AvailablePlayers />
     </Background>

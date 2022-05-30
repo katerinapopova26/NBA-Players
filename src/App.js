@@ -5,8 +5,10 @@ import HomePage from "./pages/HomePage";
 import PlayersPage from "./pages/PlayersPage";
 import MyTeam from "./pages/MyTeam";
 import NotFound from "./pages/NotFound";
+import ScrollToTop from "./components/UI/ScrollToTop";
 
 function App() {
+  <ScrollToTop />;
   const [users, setUsers] = useState(false);
   const addUserHandler = (uName) => {
     setUsers(() => {
