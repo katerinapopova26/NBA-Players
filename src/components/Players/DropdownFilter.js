@@ -1,6 +1,6 @@
 import React from "react";
 
-import classes from "./DropdownFilter.module.css";
+import classes from "./Dropdown.module.css";
 
 const DropdownFilter = (props) => {
   const dropdownChangeHandler = (event) => {
@@ -12,7 +12,7 @@ const DropdownFilter = (props) => {
       <select
         value={props.selected}
         onChange={dropdownChangeHandler}
-        className={classes.positions_filter}
+        className={classes.dropdown}
       >
         <option value="">All Positions</option>
         <option value="G">Guard</option>
